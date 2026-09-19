@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="기업을 위한 AI 검색 가시성 컨설팅" />
-  <title>VORA | AI 검색 가시성 컨설팅</title>
+  <meta name="description" content="AI search visibility consulting for companies" />
+  <title>VORA | AI Search Visibility Consulting</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <style>
@@ -31,9 +31,6 @@
     .logo-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 8px; background: var(--lime); color: var(--white); font-size: 13px; }
     .nav-links { display: flex; gap: 28px; margin-left: auto; }
     .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; font-weight: 700; }
-    .language-switch { display: inline-flex; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; }
-    .language-switch button { border: 0; padding: 7px 9px; background: transparent; color: var(--muted); font: 800 11px var(--font); cursor: pointer; }
-    .language-switch button.active { background: var(--ink); color: var(--white); }
     .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border: 0; border-radius: 11px; background: var(--ink); color: var(--white); text-decoration: none; font: 800 14px var(--font); transition: transform .18s ease, box-shadow .18s ease; cursor: pointer; }
     .button:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(21,34,30,.15); }
     .button.lime { background: var(--lime); color: var(--white); }
@@ -43,7 +40,7 @@
     .eyebrow { margin: 0 0 16px; color: #6246c8; font-size: 12px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
     h1, h2, h3, p { margin: 0; }
     h1, h2 { white-space: pre-line; text-wrap: balance; letter-spacing: -.07em; line-height: 1.14; }
-    h1 { max-width: 12ch; font-size: clamp(48px, 6vw, 82px); }
+    h1 { max-width: 13ch; font-size: clamp(48px, 6vw, 82px); }
     h2 { max-width: 14ch; font-size: clamp(36px, 4.3vw, 60px); }
     .hero-copy > p:not(.eyebrow) { max-width: 550px; margin-top: 24px; color: var(--ink-soft); font-size: 18px; line-height: 1.8; }
     .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 34px; }
@@ -132,7 +129,6 @@
     <nav class="container nav">
       <a class="logo" href="#top"><span class="logo-mark">V</span><span>VORA</span></a>
       <div class="nav-links"><a href="#services" id="navServices"></a><a href="#about" id="navAbout"></a><a href="#approach" id="navApproach"></a><a href="#industries" id="navIndustries"></a></div>
-      <div class="language-switch" aria-label="언어 선택"><button class="active" type="button" data-language="ko">KO</button><button type="button" data-language="en">EN</button></div>
       <a class="button small" href="#contact" id="navContact"></a>
     </nav>
   </header>
@@ -202,49 +198,29 @@
   <iframe name="leadSubmissionFrame" title="Lead submission" hidden></iframe>
 
   <script>
-    /*
-      EDITABLE CONTENT
-      Update the Korean, English, and credentials here.
-    */
+    /* EDITABLE ENGLISH CONTENT */
     const content = {
       contactEmail: "jinyoung@voragroup.org",
-      // Paste your deployed Google Apps Script Web App URL here after following
-      // vora-cloudflare/google-apps-script/README.md. Keep this blank until then.
+      // Google Apps Script Web App that safely appends contact submissions to the private sheet.
       formEndpoint: "https://script.google.com/macros/s/AKfycbyCVZWuynoFSZMDVdb8Zdh2DzLv2blN0ZPajBY6WVcinShF9vdIelO5Kzrn3s2ZjR4yWw/exec",
-      ko: {
-        nav: ["서비스", "소개", "진행 방식", "적용 분야", "상담 문의"],
-        hero: ["AI 검색 시대의 브랜드 가시성", "고객은 이제\nAI한테 묻습니다.", "VORA는 한국 기업이 ChatGPT, Gemini, Claude 등 AI 검색 환경에서 더 정확하게 이해되고, 신뢰 있게 언급될 수 있도록 돕습니다.", "무료 20분 진단 신청", "GEO가 무엇인가요?  ↘", "초기 상담은 무료입니다. 과장된 성과 약속 대신, 현 상황과 우선순위를 보여드립니다."],
-        query: ["AI 검색 예시", "AI가 신뢰 신호를 확인하는 방식", "서울에서 영어유치원 잘하는 곳 찾아줘", "AI는 보통 다음과 같은 신뢰 신호를 함께 확인합니다.", ["명확한 교육 철학과 커리큘럼", "검증 가능한 학부모 후기와 지역 신호", "일관된 기관·프로그램 정보"], "AI가 기관을 정확히 이해할 수 있는 신호가 충분하지 않습니다."],
-        proof: [["GEO", "Generative Engine Optimization"], ["KO / EN", "한국어·영어 검색 환경 점검"], ["1:1", "업종·경쟁 환경별 맞춤 전략"]],
-        problem: ["왜 지금 GEO인가", "검색 결과를 보는 방식이\n바뀌고 있습니다.", "고객은 더 이상 링크 목록만 훑지 않습니다. AI에게 상황을 설명하고, 이름과 이유를 받습니다. 이때 중요한 것은 단순 노출이 아니라 AI가 브랜드의 전문성, 맥락, 신뢰도를 얼마나 정확히 이해하는가입니다.", [["AI는 압축해서 답합니다", "수많은 검색 결과 대신, 맥락에 맞는 소수의 브랜드를 요약합니다. 추천 후보가 되는 기준이 새롭게 만들어지고 있습니다."], ["정보의 일관성이 신뢰가 됩니다", "웹사이트, 기사, 리뷰, 디렉터리에 흩어진 정보가 다르면 AI도 브랜드를 확신하기 어렵습니다."], ["좋은 콘텐츠만으로는 부족합니다", "콘텐츠의 품질과 함께 구조, 출처, 엔터티 정보, 업계 맥락까지 함께 설계해야 합니다."]]],
-        services: ["서비스", "AI가 브랜드를 이해하도록,\n기반부터 설계합니다.", "단기적인 키워드 작업이 아니라 브랜드 정보와 신뢰 신호를 정리하는 일입니다. 필요한 범위부터 시작할 수 있습니다.", [["01", "AI 가시성 진단", "고객이 실제로 할 법한 질문을 기준으로 AI 검색 결과와 경쟁 환경을 점검합니다. 현재 인식, 정보 공백, 우선순위를 리포트로 정리합니다.", ["질문 맵", "경쟁 비교", "진단 리포트"]], ["02", "브랜드 엔터티 정비", "웹사이트와 외부 채널에 흩어진 브랜드·제품·전문성 정보를 정리합니다. AI와 사람이 모두 이해하기 쉬운 정보 구조를 만듭니다.", ["메시지 구조", "스키마", "정보 일관성"]], ["03", "AI-Ready 콘텐츠 전략", "고객의 의사결정 단계와 실제 질문에 맞춰 콘텐츠 주제, 형식, 근거 설계를 제안합니다. 실무팀이 이어서 실행할 수 있게 만듭니다.", ["콘텐츠 맵", "FAQ", "근거 설계"]], ["04", "지속 모니터링 & 자문", "주요 질문군과 경쟁사를 정기적으로 점검하며 변화를 해석합니다. 필요한 개선 과제를 우선순위에 맞춰 함께 결정합니다.", ["월간 점검", "인사이트", "실행 자문"]]]],
-        about: ["VORA 소개", "AI 검색 시대의\n실무형 파트너", "VORA는 기술, 콘텐츠, 브랜드 전략의 접점에서 AI 검색 가시성을 설계합니다. 우리는 'AI에 노출된다'는 말보다, 고객이 필요한 맥락에서 브랜드가 정확하고 신뢰 있게 이해되는 것을 더 중요하게 생각합니다. 아래 설명과 자격은 실제 이력에 맞게 자유롭게 수정하세요.", [["EXPERTISE", "GEO & 검색 전략", "AI 검색 환경 진단, 엔터티 정비, 콘텐츠 구조 설계"], ["FOCUS", "한국 시장 맥락", "네이버·구글·글로벌 AI 환경을 함께 고려하는 전략"], ["WORKING STYLE", "실행 가능한 자문", "내부 팀이 바로 이어갈 수 있는 명확한 우선순위와 문서"], ["CREDENTIALS", "여기에 실제 이력 추가", "학력, 이전 회사, 프로젝트, 인증, 미디어 기고 등을 추가하세요."]]],
-        approach: ["진행 방식", "측정하고, 정리하고,\n계속 검증합니다.", [["발견", "비즈니스, 고객 질문, 경쟁 환경을 빠르게 이해합니다. 무엇을 측정할지 먼저 합의합니다."], ["진단", "AI 검색 환경과 기존 브랜드 자산을 점검합니다. 눈에 보이는 현상과 원인을 구분합니다."], ["설계", "영향도와 실행 난이도를 기준으로 개선 로드맵을 만듭니다. 내부 팀이 할 일도 명확히 합니다."], ["검증", "변화를 재점검하고 다음 가설을 세웁니다. GEO는 일회성 세팅이 아니라 학습 과정입니다."]]],
-        industries: ["적용 분야", "복잡한 설명이 필요한\n브랜드일수록 효과적입니다.", "특히 전문성, 신뢰, 비교가 중요한 업종에서 GEO는 더 큰 역할을 합니다.", ["B2B SaaS · IT", "전문 서비스 · 컨설팅", "헬스케어 · 웰니스", "교육 · 에듀테크", "프리미엄 소비재", "로컬 · 프랜차이즈"]],
-        contact: ["상담 문의", "우리 브랜드는 AI에게\n어떻게 보일까요?", "30분 동안 현재 상황을 듣고, 우선 확인할 질문과 GEO 접근 방식을 함께 정리해 드립니다.", ["무엇을 먼저 점검해야 하는지", "내부 팀으로 가능한 일과 외부 도움이 필요한 일", "진단 프로젝트 범위와 예상 일정"], ["이름", "회사명", "이메일", "현재 고민 또는 문의 내용", "상담 문의 보내기"], "© 2026 VORA. AI 검색 가시성 컨설팅."]
-      },
-      en: {
-        nav: ["Services", "About", "Approach", "Industries", "Contact"],
-        hero: ["Brand visibility for the AI search era", "When customers ask AI,\nyour brand becomes the answer.", "VORA helps Korean companies become more accurately understood and credibly mentioned across AI search environments including ChatGPT, Gemini, and Perplexity.", "Book a free 30-minute audit", "What is GEO?  ↘", "The first conversation is free. We clarify your current position and priorities instead of making inflated promises."],
-        query: ["AI search example", "How AI evaluates trust signals", "Recommend a strong English kindergarten in Seoul", "AI typically looks for these trust signals together.", ["A clear educational philosophy and curriculum", "Verifiable parent reviews and local signals", "Consistent school and program information"], "There may not yet be enough signals for AI to understand the institution accurately."],
-        proof: [["GEO", "Generative Engine Optimization"], ["KO / EN", "Korean and English search environments"], ["1:1", "Strategy tailored to industry and competition"]],
+      nav: ["Services", "About", "Approach", "Industries", "Contact"],
+      hero: ["Brand visibility for the AI search era", "When customers ask AI\nyour brand is\nthe answer.", "VORA helps companies become more accurately understood and credibly mentioned across AI search environments including ChatGPT, Gemini, and Perplexity.", "Book a free 20-minute audit", "What is GEO?  ↘", "The first conversation is free. We clarify your current position and priorities instead of making inflated promises."],
+        query: ["AI search example", "How AI evaluates trust signals", "Recommend a strong English kindergarten in my area", "AI typically looks for these trust signals together.", ["A clear educational philosophy and curriculum", "Verifiable parent reviews and local signals", "Consistent school and program information"], "There may not yet be enough signals for AI to understand the institution accurately."],
+        proof: [["GEO", "Generative Engine Optimization"], ["AI VIS", "Visibility across multiple GenAI models"], ["1:1", "Strategy tailored to industry and competition"]],
         problem: ["Why GEO, now", "The way people see\nsearch results is changing.", "Customers no longer only scan a list of links. They explain their situation to AI and receive a few names with reasons. What matters is not only visibility, but how accurately AI understands a brand's expertise, context, and credibility.", [["AI compresses the answer", "Instead of countless search results, AI summarizes a small set of brands that fit the context. The criteria for becoming a candidate are changing."], ["Consistency creates trust", "When information differs across your website, articles, reviews, and directories, AI has a harder time being confident about your brand."], ["Good content is not enough", "Content quality matters, but structure, sources, entity information, and industry context need to work together."]]],
         services: ["Services", "Build the foundation for AI\nto understand your brand.", "This is not a short-term keyword exercise. It is the work of organizing brand information and trust signals, starting with the scope that matters most.", [["01", "AI Visibility Audit", "We assess AI search results and your competitive context through questions your customers are likely to ask. You receive a clear view of perception gaps and priorities.", ["Question map", "Competitor review", "Audit report"]], ["02", "Brand Entity Foundation", "We organize fragmented brand, product, and expertise information across your website and external channels into a structure people and AI can understand.", ["Messaging", "Schema", "Information consistency"]], ["03", "AI-Ready Content Strategy", "We shape content themes, formats, and proof around customer decision stages and real questions, so your internal team can continue the work with confidence.", ["Content map", "FAQ", "Evidence design"]], ["04", "Ongoing Monitoring & Advisory", "We monitor priority questions and competitors, interpret changes, and decide the next improvements in a practical order.", ["Monthly review", "Insights", "Execution advisory"]]]],
-        about: ["About VORA", "A practical partner for\nthe AI search era.", "VORA works at the intersection of technology, content, and brand strategy to shape AI search visibility. We care less about merely appearing in AI responses and more about brands being understood accurately and credibly in the moments that matter. Edit this introduction and the credentials below to reflect your real team.", [["EXPERTISE", "GEO & Search Strategy", "AI search audits, entity foundations, and content structure"], ["FOCUS", "Korean Market Context", "Strategies that consider Naver, Google, and global AI environments"], ["WORKING STYLE", "Actionable Advisory", "Clear priorities and documentation your internal team can use"], ["CREDENTIALS", "Add your real credentials", "Add education, past companies, projects, certifications, or media contributions here."]]],
+        about: ["About VORA", "A practical partner for\nthe AI search era.", "VORA works at the intersection of technology, content, and brand strategy to shape AI search visibility. We care less about merely appearing in AI responses and more about brands being understood accurately and credibly in the moments that matter. Edit this introduction and the credentials below to reflect your real team.", [["EXPERTISE", "GEO & Search Strategy", "AI search audits, entity foundations, and content structure"], ["FOCUS", "Hong Kongese/Sinagporean Market Context", "Strategies that consider multiple search engines and global AI environments"], ["WORKING STYLE", "Actionable Advisory", "Clear priorities and documentation your internal team can use"], ["CREDENTIALS", "Add your real credentials", "Add education, past companies, projects, certifications, or media contributions here."]]],
         approach: ["Approach", "Measure, organize,\nand keep validating.", [["Discover", "We quickly understand your business, customer questions, and competitive environment, then agree on what should be measured."], ["Diagnose", "We examine the AI search environment and existing brand assets, separating visible symptoms from their causes."], ["Design", "We create an improvement roadmap based on impact and effort, including what the internal team can own."], ["Validate", "We check the changes, form the next hypothesis, and keep learning. GEO is not a one-time setup."]]],
         industries: ["Industries", "Especially useful for brands\nthat need to explain more.", "GEO plays a stronger role where expertise, trust, and comparison matter in the purchase decision.", ["B2B SaaS · IT", "Professional Services · Consulting", "Healthcare · Wellness", "Education · EdTech", "Premium Consumer Brands", "Local · Franchise"]],
-        contact: ["Contact", "How does AI see\nyour brand today?", "In 30 minutes, we will understand your current situation and outline the first questions and GEO approach worth exploring.", ["What to examine first", "What your team can handle internally and where outside help may matter", "Likely audit scope and timeline"], ["Name", "Company", "Email", "Current challenge or message", "Send inquiry"], "© 2026 VORA. AI search visibility consulting."]
-      }
+      contact: ["Contact", "How does AI see\nyour brand today?", "In 20 minutes, we will understand your current situation and outline the first questions and GEO approach worth exploring.", ["What to examine first", "What your team can handle internally and where outside help may matter", "Likely audit scope and timeline"], ["Name", "Company", "Email", "Current challenge or message", "Send inquiry"], "© 2026 VORA. AI search visibility consulting."]
     };
 
-    let language = "ko";
     const set = (id, value) => document.getElementById(id).textContent = value;
     const list = (id, items, create) => document.getElementById(id).replaceChildren(...items.map(create));
     const observe = () => document.querySelectorAll(".reveal:not(.show)").forEach(el => observer.observe(el));
     const render = () => {
-      const copy = content[language];
-      document.documentElement.lang = language;
-      document.title = language === "ko" ? "VORA | AI 검색 가시성 컨설팅" : "VORA | AI Search Visibility Consulting";
+      const copy = content;
+      document.title = "VORA | AI Search Visibility Consulting";
       ["navServices", "navAbout", "navApproach", "navIndustries", "navContact"].forEach((id, index) => set(id, copy.nav[index]));
       ["heroEyebrow", "heroTitle", "heroDescription", "heroCta", "heroLink", "heroReassurance"].forEach((id, index) => set(id, copy.hero[index]));
       const [queryLabel, answerLabel, prompt, lead, queryItems, missing] = copy.query;
@@ -271,19 +247,15 @@
         link.removeAttribute("target");
         link.removeAttribute("rel");
       });
-      document.querySelectorAll("[data-language]").forEach(button => button.classList.toggle("active", button.dataset.language === language));
       observe();
     };
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("show"); observer.unobserve(entry.target); } }), { threshold: .12 });
-    document.querySelectorAll("[data-language]").forEach(button => button.addEventListener("click", () => { language = button.dataset.language; render(); }));
     document.getElementById("contactForm").addEventListener("submit", event => {
       event.preventDefault();
       const form = event.currentTarget;
       const submit = document.getElementById("formSubmit");
       const status = document.getElementById("formStatus");
-      const messages = language === "ko"
-        ? { configuring: "문의 접수 기능을 설정 중입니다. 잠시 후 다시 시도해 주세요.", sending: "문의 내용을 보내는 중입니다.", success: "문의가 접수되었습니다. 빠르게 연락드리겠습니다.", error: "전송에 실패했습니다. 이메일로 문의해 주세요." }
-        : { configuring: "The inquiry form is still being configured. Please try again shortly.", sending: "Sending your inquiry.", success: "Your inquiry has been received. We will be in touch shortly.", error: "We could not send your inquiry. Please email us instead." };
+      const messages = { configuring: "The inquiry form is still being configured. Please try again shortly.", sending: "Sending your inquiry.", success: "Your inquiry has been received. We will be in touch shortly.", error: "We could not send your inquiry. Please email us instead." };
 
       if (!content.formEndpoint) {
         status.className = "form-status error";
@@ -292,7 +264,7 @@
       }
 
       form.elements.submittedAt.value = new Date().toISOString();
-      form.elements.language.value = language;
+      form.elements.language.value = "en";
       form.action = content.formEndpoint;
       form.method = "post";
       form.target = "leadSubmissionFrame";
@@ -313,5 +285,8 @@
     const header = document.getElementById("header"); addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), { passive: true });
     render();
   </script>
+</body>
+</html>
+
 </body>
 </html>
